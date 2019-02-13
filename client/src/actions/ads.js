@@ -26,7 +26,9 @@ const adCreated = ad => {
     ad
   };
 };
+
 export const createAd = data => dispatch => {
+  console.log("action", data);
   request
     .post(`${baseUrl}/ads`)
     .send(data)

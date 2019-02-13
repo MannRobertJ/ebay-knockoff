@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { Route } from "react-router-dom";
 import AdListContainer from "./components/AdListContainer";
 import AdDetailsContainer from "./components/AdDetailsContainer";
+import LoginForm from "./components/LoginForm";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
         <div>
           <Route path="/" exact component={AdListContainer} />
           <Route path="/:id" exact component={AdDetailsContainer} />
+          <LoginForm />
         </div>
       </Provider>
     );
