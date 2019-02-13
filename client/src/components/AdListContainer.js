@@ -55,7 +55,8 @@ class AdListContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  ads: state.ads
+  ads: state.ads,
+  jwt: state.jwt
 });
 
 export default connect(
