@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 import { BaseEntity } from "typeorm/repository/BaseEntity";
 import {
   IsBoolean,
-  IsNumber,
+  IsNumberString,
   IsString,
   IsUrl,
   Length,
@@ -23,7 +23,7 @@ export default class Ad extends BaseEntity {
   @Column("text", { nullable: false })
   title: string;
 
-  @IsNumber()
+  @IsNumberString()
   @Column("integer", { nullable: false })
   price: number = 0;
 
@@ -34,6 +34,7 @@ export default class Ad extends BaseEntity {
   description: string;
 
   @IsUrl()
-  @Column("text", { nullable: true })
-  pictureUrl: string = "http://google.com";
+  @Column("text", { nullable: false })
+  pictureUrl: string =
+    "https://upload.wikimedia.org/wikipedia/en/d/d3/No-picture.jpg";
 }

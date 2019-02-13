@@ -16,20 +16,27 @@ export default function(props) {
           type="text"
           name="price"
           placeholder="type price here"
-          value={ad.price || ""}
+          value={ad.price}
+          onChange={props.onChange}
+        />
+        <input
+          type="text"
+          name="description"
+          placeholder="type description here"
+          value={ad.description}
           onChange={props.onChange}
         />
         <input
           type="text"
           name="pictureUrl"
           placeholder="type picture url here"
-          value={ad.pictureUrl || ""}
+          value={ad.pictureUrl}
           onChange={props.onChange}
         />
         <input
           type="checkbox"
           name="soldStatus"
-          value={ad.soldStatus || false}
+          value={props.soldStatus}
           onChange={props.onChange}
         />
         Item has been sold

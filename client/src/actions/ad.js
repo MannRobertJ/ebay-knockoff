@@ -41,7 +41,6 @@ const adUpdated = (id, data) => {
 };
 
 export const updateAd = (id, data) => dispatch => {
-  console.log("does this work?");
   request
     .put(`${baseUrl}/ads/${id}`)
     .send(data)

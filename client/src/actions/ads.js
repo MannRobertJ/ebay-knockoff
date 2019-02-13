@@ -16,3 +16,19 @@ export const fetchAds = () => dispatch => {
     .then(res => dispatch(adsFetched(res.body.ads)))
     .catch(console.error);
 };
+
+export const AD_CREATED = "AD_CREATED";
+
+const adCreated = ad => {
+  console.log(ad);
+  return {
+    type: AD_CREATED,
+    ad
+  };
+};
+export const createAd = data => dispatch => {
+  request
+    .post(`${baseUrl}/ads`)
+    .send(data)
+    .then(res => dispatch(adCreated(res.body)));
+};
