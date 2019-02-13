@@ -3,7 +3,7 @@ import { BaseEntity } from "typeorm/repository/BaseEntity";
 import {
   IsBoolean,
   IsNumber,
-    IsString,
+  IsString,
   IsUrl,
   Length,
   MinLength
@@ -15,7 +15,7 @@ export default class Ad extends BaseEntity {
   id?: number;
 
   @IsBoolean()
-  @Column("boolean", { nullable: false)
+  @Column("boolean", { nullable: false })
   soldStatus: boolean = false;
 
   @IsString()
@@ -24,7 +24,7 @@ export default class Ad extends BaseEntity {
   title: string;
 
   @IsNumber()
-  @Column("integer", { nullable: false }) 
+  @Column("integer", { nullable: false })
   price: number = 0;
 
   @IsString()
@@ -34,6 +34,6 @@ export default class Ad extends BaseEntity {
   description: string;
 
   @IsUrl()
-  @Column("text", { nullable: true  })
+  @Column("text", { nullable: true })
   pictureUrl: string = "http://google.com";
 }
