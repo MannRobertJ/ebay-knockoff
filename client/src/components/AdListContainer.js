@@ -35,9 +35,9 @@ class AdListContainer extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const data = this.state.soldStatus === "true" ? true : false;
-    const soldStatus = data.soldStatus;
-    this.props.updateAd(Number(this.props.match.params.id), data);
+    const data = this.state;
+    console.log(data);
+    this.props.createAd(data);
   };
 
   render() {
@@ -55,7 +55,8 @@ class AdListContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-  ads: state.ads
+  ads: state.ads,
+  jwt: state.jwt
 });
 
 export default connect(

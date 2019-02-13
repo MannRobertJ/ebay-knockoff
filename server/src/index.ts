@@ -2,10 +2,12 @@ import "reflect-metadata";
 import { createKoaServer /*, Action*/ } from "routing-controllers";
 import setupDb from "./db";
 import AdController from "./ads/controller";
+import UserController from "./users/controller";
+import LoginController from "./logins/controller";
 const json = require("koa-json");
 
 const app = createKoaServer({
-  controllers: [AdController],
+  controllers: [AdController, UserController, LoginController],
   cors: true
   /* authorizationChecker: (action: Action) => {
     const header: string = action.request.headers.authorization;

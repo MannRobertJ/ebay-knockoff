@@ -4,7 +4,6 @@ import { fetchAd, updateAd } from "../actions/ad";
 import { fetchAds } from "../actions/ads";
 import AdDetails from "./AdDetails";
 import AdForm from "./AdForm";
-import { ENETDOWN } from "constants";
 
 class AdDetailsContainer extends Component {
   state = {
@@ -38,8 +37,8 @@ class AdDetailsContainer extends Component {
 
   onSubmit = event => {
     event.preventDefault();
-    const data = this.state.soldStatus === "true" ? true : false;
-    const soldStatus = data.soldStatus;
+    const data = this.state;
+    console.log(data);
     this.props.updateAd(Number(this.props.match.params.id), data);
   };
 
@@ -65,7 +64,8 @@ class AdDetailsContainer extends Component {
 
 const mapStateToProps = state => ({
   ad: state.ad,
-  ads: state.ads
+  ads: state.ads,
+  jwt: state.jwt
 });
 
 export default connect(

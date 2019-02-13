@@ -7,6 +7,7 @@ export default function reducer(state = null, action = {}) {
     case NO_AD:
       return action.ad;
     case AD_UPDATE_SUCCESS:
+      console.log("reducer", action.data);
       return action.data;
     default:
       return state;
