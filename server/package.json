@@ -1,0 +1,32 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "target/index.js",
+  "scripts": {
+    "start": "node .",
+    "postinstall": "tsc",
+    "compile": "tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/koa": "^2.0.48",
+    "@types/koa-bodyparser": "^4.2.1",
+    "@types/koa-multer": "^1.0.0",
+    "@types/koa-router": "^7.0.39",
+    "cors": "^2.8.5",
+    "kcors": "^2.2.2",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-json": "^2.0.2",
+    "koa-multer": "^1.0.2",
+    "koa-router": "^7.4.0",
+    "pg": "^7.8.0",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.7.7",
+    "typeorm": "^0.2.13",
+    "typescript": "^3.3.3"
+  }
+}
