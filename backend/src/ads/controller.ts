@@ -2,8 +2,11 @@ import {
   JsonController,
   Get,
   Post,
+  Put,
   HttpCode,
-  Body
+  Body,
+  Param,
+  NotFoundError
   /*   Put,
   Post,
   Param,
@@ -20,6 +23,18 @@ export default class AdController {
   async allAdds() {
     const ads = await Ad.find();
     return { ads };
+  }
+
+  @Get("/ads/:id")
+  getAd(@Param("id") id: number) {
+    return Ad.findOne(id);
+  }
+
+  @Put("/ads/:id")
+  async updatePage(@Param("id") id: number, @Body() update: Partial<Ad>) {
+    const ad = await Ad.findOne(id);
+    if (!ad) throw new NotFoundError("Cannot find ad");
+    return Ad.merge(ad, update).save();
   }
 
   @Post("/ads")
