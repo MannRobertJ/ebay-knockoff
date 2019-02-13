@@ -1,11 +1,23 @@
 import "reflect-metadata";
-import { createKoaServer } from "routing-controllers";
-import Controller from "./controller";
-
-const port = process.env.PORT || 4000;
+import { createKoaServer /*, Action*/ } from "routing-controllers";
+import setupDb from "./db";
+import AdController from "./ads/controller";
+// import { verify } from "./logins/jwt";
+// import LoginController from "./logins/controller";
 
 const app = createKoaServer({
-  controllers: [Controller]
-});
+  controllers: [AdController]
+  /* authorizationChecker: (action: Action) => {
+    const header: string = action.request.headers.authorization;
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+    if (header && header.startsWith("Bearer ")) {
+      const [, token] = header.split(" ");
+      return !!(token && verify(token));
+    }
+    return false;
+  } */
+});
+const port = process.env.PORT || 4000;
+setupDb()
+  .then(_ => app.listen(port, () => console.log(`Listening on port ${port}`)))
+  .catch(err => console.error(err));
