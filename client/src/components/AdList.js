@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function(props) {
   if (!props.ads) {
@@ -11,7 +12,9 @@ export default function(props) {
       <h1>Ads</h1>
       <ul>
         {props.ads.map(ad => (
-          <li key={ad.id}>{ad.title}</li>
+          <li key={ad.id}>
+            <Link to={`/${ad.id}`}>{ad.title}</Link>
+          </li>
         ))}
       </ul>
     </div>

@@ -26,8 +26,9 @@ export default class AdController {
   }
 
   @Get("/ads/:id")
-  getAd(@Param("id") id: number) {
-    return Ad.findOne(id);
+  async getAd(@Param("id") id: number) {
+    const ad = await Ad.findOne(id);
+    return { ad };
   }
 
   @Put("/ads/:id")
