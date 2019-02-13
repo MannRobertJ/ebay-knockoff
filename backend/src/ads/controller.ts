@@ -1,6 +1,9 @@
 import {
   JsonController,
-  Get
+  Get,
+  Post,
+  HttpCode,
+  Body
   /*   Put,
   Post,
   Param,
@@ -17,5 +20,11 @@ export default class AdController {
   async allAdds() {
     const ads = await Ad.find();
     return { ads };
+  }
+
+  @Post("/ads")
+  @HttpCode(201)
+  createAd(@Body() ad: Ad) {
+    return ad.save();
   }
 }

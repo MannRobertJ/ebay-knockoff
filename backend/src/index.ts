@@ -17,7 +17,7 @@ const app = createKoaServer({
     return false;
   } */
 });
-const port = process.env.PORT || 4001;
+const port = process.env.PORT || 4000;
 setupDb()
   .then(_ => app.listen(port, () => console.log(`Listening on port ${port}`)))
   .catch(err => console.error(err));
